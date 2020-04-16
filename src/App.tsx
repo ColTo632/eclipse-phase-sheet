@@ -1,19 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { SkillList } from "./components/skillList/skillList";
+import { ConceptTable } from "./components/conceptTable/conceptTable";
+import { StatTable } from "./components/statTable/statTable";
+import { MorphTable } from "./components/morphTable/morphTable";
+import { MuseTable } from "./components/museTable/museTable";
+import { FreeStatTable } from "./components/freeStatTable/freeStatTable";
+import { EquipmentTable } from "./components/equipmentTable/equipmentTable";
+import { Stack, DefaultButton } from "office-ui-fabric-react";
 
-function App() {
+function App(): JSX.Element {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header>
+            <FreeStatTable />
+            <Stack horizontal>
+                <ConceptTable />
+                <StatTable />
+            </Stack>
+            <SkillList />
+            <Stack horizontal>
+                <EquipmentTable />
+                <MuseTable />
+            </Stack>
+            <DefaultButton text="Add Morph" />
+            <Stack horizontal>
+                <MorphTable />
+                <Stack.Item />
+            </Stack>
         </div>
     );
 }
